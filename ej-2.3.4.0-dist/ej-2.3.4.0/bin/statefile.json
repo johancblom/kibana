@@ -1,0 +1,23 @@
+{
+  "type" : "jdbc",
+  "jdbc" : {
+    "schedule" : "0 0-59 0-23 ? * *",
+    "elasticsearch" : {
+      "cluster" : "johans-application"
+    },
+    "index" : "myindex",
+    "statefile" : "statefile.json",
+    "metrics" : {
+      "lastexecutionstart" : "2018-01-05T08:08:00.165Z",
+      "lastexecutionend" : "2018-01-05T08:08:00.850Z",
+      "counter" : "668"
+    },
+    "type" : "type1",
+    "user" : "postgres",
+    "url" : "jdbc:postgresql:usageserver?loglevel=3",
+    "sql" : [ {
+      "statement" : "select user_id, ts, level, subject_id, subject_name, type, details, case when position('version' in details) > 0 then 'App start: ' || substr(details, position('version' in details) + 8, 14) else substr(details, 0, 20) end as details_short, case when type='Perspective Switch' then substr(details, position('Areas' in details) + 7, position(']' in details) - position('Areas' in details) -7) else '' end as areas, abs(extract(epoch from (ts - lead(ts) over (partition by user_id, type order by ts)))/60) as diff, seq_num from activity where details != '' and  ts > ?",
+      "parameter" : [ "$metrics.lastexecutionstart" ]
+    } ]
+  }
+}

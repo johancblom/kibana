@@ -1,0 +1,20 @@
+{
+  "type" : "jdbc",
+  "jdbc" : {
+    "schedule" : "0 0-59 0-23 ? * *",
+    "index" : "myindex",
+    "statefile" : "statefile.json",
+    "metrics" : {
+      "lastexecutionstart" : "2017-02-19T17:16:00.143Z",
+      "lastexecutionend" : "2017-02-19T17:16:00.150Z",
+      "counter" : "11570"
+    },
+    "type" : "type1",
+    "user" : "postgres",
+    "url" : "jdbc:postgresql://192.168.1.100:5432/usageserver?loglevel=3",
+    "sql" : [ {
+      "statement" : "select user_id, ts, level, subject_id, subject_name, type, details, substr(details, 0, 20) as details_short, seq_num from activity where details != '' and  ts > ?",
+      "parameter" : [ "$metrics.lastexecutionstart" ]
+    } ]
+  }
+}
