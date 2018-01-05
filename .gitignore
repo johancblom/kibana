@@ -12,3 +12,4 @@ logstash-5.5.1/**/lib
 *.jar
 elasticsearch-2.4.3/data
 EOM.csv
+.viminfo
