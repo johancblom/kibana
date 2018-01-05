@@ -11,3 +11,4 @@ logstash-2.0.0
 logstash-5.5.1/**/lib
 *.jar
 elasticsearch-2.4.3/data
+EOM.csv
