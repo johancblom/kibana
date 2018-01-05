@@ -13,3 +13,4 @@ logstash-5.5.1/**/lib
 elasticsearch-2.4.3/data
 EOM.csv
 .viminfo
+cp_*_script.sh
