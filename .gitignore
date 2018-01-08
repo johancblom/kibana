@@ -5,8 +5,10 @@
 **/logs
 **/vendor
 tcl8.6.6
+.bash_history
 .m2
 .npm
+.oracle_*
 logstash-2.0.0
 logstash-5.5.1/**/lib
 *.jar
