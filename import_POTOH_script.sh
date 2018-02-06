@@ -2,7 +2,7 @@
 
 exp_internal 1
 
-set timeout 180
+set timeout 360
 
 set send_slow {1.120}
 
@@ -13,26 +13,19 @@ send "vagrant\r"
 
 expect "$ "
 
-send "scp optsys@10.2.65.201:/home/optsys/blomjo/POTOH.csv .\r"
+send "scp optsys@10.2.65.201:/home/optsys/blomjo/POTOH.csv.gz /tmp\r"
 
 expect -re ".*password:"
 send "optsys1\r"
 
 expect "$ "
 
+send "gunzip -f /tmp/POTOH.csv.gz\r"
 
-send "cd logstash-2.0.0\r"
+expect "$ "
 
-expect "2.0.0$ "
+send "mv -f /tmp/POTOH.csv ~\r"
 
-send "cd bin\r"
-
-expect "bin$ "
-
-puts "running logstash"
-
-send "./logstash -f ../logstash_to.conf\r"
-
-expect "123abc$ "
+expect "$ "
 
 exit
