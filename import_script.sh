@@ -2,7 +2,7 @@
 
 exp_internal 1
 
-set timeout 600
+set timeout 1200
 
 set send_slow {1.120}
 

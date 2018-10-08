@@ -8,9 +8,9 @@
     "index" : "myindex",
     "statefile" : "statefile.json",
     "metrics" : {
-      "lastexecutionstart" : "2018-03-07T08:25:00.108Z",
-      "lastexecutionend" : "2018-03-07T08:25:00.743Z",
-      "counter" : "24"
+      "lastexecutionstart" : "2018-10-02T08:15:00.090Z",
+      "lastexecutionend" : "2018-10-02T08:15:00.753Z",
+      "counter" : "966"
     },
     "type" : "type1",
     "user" : "postgres",
